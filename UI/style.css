@@ -1,0 +1,62 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 50px;
+    background-color: aqua;
+}
+
+#personImages{
+    margin-left: 20%;
+}
+
+.custom-circle-image {
+    width: 10vw; /* note i used vw not px for better responsive */
+    height: 10vw;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+}
+.card-wrapper {
+    margin: 10px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 200px;
+    
+}
+  
+.custom-circle-image img {
+    width: 150px;
+    height: 150px;
+    object-fit:cover;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-right: auto;
+    margin-top: 25px;
+}
+
+.card-body {
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+#uploadForm {
+    margin-top: 20px;
+}
+
+#imageInput {
+    margin-right: 10px;
+}
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+
