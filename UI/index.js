@@ -1,3 +1,4 @@
+// Code taken from https://github.com/codebasics/py/tree/master/DataScience/CelebrityFaceRecognition
 Dropzone.autoDiscover = false;
 
 function init() {
@@ -18,39 +19,11 @@ function init() {
     dz.on("complete", function (file) {
         let imageData = file.dataURL;
         
-        var url = "http://127.0.0.1:5000/classify_image";
+        var url = "http://127.0.0.1:5000/classify";
 
         $.post(url, {
             image_data: file.dataURL
         },function(data, status) {
-            /* 
-            Below is a sample response if you have two faces in an image lets say virat and roger together.
-            Most of the time if there is one person in the image you will get only one element in below array
-            data = [
-                {
-                    class: "viral_kohli",
-                    class_probability: [1.05, 12.67, 22.00, 4.5, 91.56],
-                    class_dictionary: {
-                        lionel_messi: 0,
-                        maria_sharapova: 1,
-                        roger_federer: 2,
-                        serena_williams: 3,
-                        virat_kohli: 4
-                    }
-                },
-                {
-                    class: "roder_federer",
-                    class_probability: [7.02, 23.7, 52.00, 6.1, 1.62],
-                    class_dictionary: {
-                        lionel_messi: 0,
-                        maria_sharapova: 1,
-                        roger_federer: 2,
-                        serena_williams: 3,
-                        virat_kohli: 4
-                    }
-                }
-            ]
-            */
             console.log(data);
             if (!data || data.length==0) {
                 $("#resultHolder").hide();
@@ -58,7 +31,7 @@ function init() {
                 $("#error").show();
                 return;
             }
-            let players = ["lionel_messi", "maria_sharapova", "roger_federer", "serena_williams", "virat_kohli"];
+            let leaders = ["narendra modi", "joe biden", "justin trudeau", "vladimir putin", "xi jinping"];
             
             let match = null;
             let bestScore = -1;
@@ -73,16 +46,21 @@ function init() {
                 $("#error").hide();
                 $("#resultHolder").show();
                 $("#divClassTable").show();
-                $("#resultHolder").html($(`[data-player="${match.class}"`).html());
+                $("#resultHolder").html($(`[data-leader="${match.class}"`).html());
                 let classDictionary = match.class_dictionary;
-                for(let personName in classDictionary) {
-                    let index = classDictionary[personName];
+                for(let leaderName in classDictionary) {
+                    let index = classDictionary[leaderName];
                     let proabilityScore = match.class_probability[index];
-                    let elementName = "#score_" + personName;
+                    console.log(leaderName, proabilityScore);
+                    for (let i=0;i<leaderName.length;++i) {
+                        if (leaderName[i]==' ') {
+                            leaderName = leaderName.slice(0, i) + '_' + leaderName.slice(i+1, leaderName.length);
+                        }
+                    }
+                    let elementName = "#score_" + leaderName;
                     $(elementName).html(proabilityScore);
                 }
-            }
-            // dz.removeFile(file);            
+            }          
         });
     });
 

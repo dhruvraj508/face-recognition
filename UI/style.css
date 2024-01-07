@@ -2,13 +2,24 @@ body {
     font-family: 'Arial', sans-serif;
     text-align: center;
     margin: 50px;
-    background-color: aqua;
+    /* background-color: aqua; */
+    /* background-image: url(https://images.pexels.com/photos/6985001/pexels-photo-6985001.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); */
+    background-image: linear-gradient(to right, white , black);
 }
 
 .row{
     margin-left: 20%;
     display: flex;
     flex-direction: row;
+}
+
+.row-1{
+    width: 50%;
+    margin-left: 22%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
 }
 
 .custom-circle-image {
@@ -42,32 +53,68 @@ body {
 h1 {
     color: #333;
 }
+.dropzone {
+    border-style: dashed;
+    margin-top: 20px;
 
-.error {
-    font-family: MerriweatherRegular;
-    font-size: 30px;
-    line-height: initial;
-    color: blue;
-    text-align: center;
+    min-height: 0px !important;
+
   }
-  
-  #classTable {
+
+    .dropzone .dz-message {
+        font-size: 25px;
+        font-weight: bold;
+        color: #000000;
+    }
+.error{
+    font-family: 'Arial', sans-serif; 
+    font-size: 25px; 
+    line-height: initial;
+    color: #FF6347; 
+    text-align: center;
+    margin-top: 20px; 
+}
+  .table-container {
+    background-color: aliceblue;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Ensure the box shadow is applied properly */
+    margin-top: 15px;
+}
+
+#classTable {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
-  }
-  
-  #classTable td, #classTable th {
+
+}
+
+#classTable th,
+#classTable td {
     border: 1px solid #ddd;
     padding: 8px;
-  }
-  
-  #classTable th {
+}
+
+#classTable th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #4CAF50;
+    background-color: #676867; /* Match the color with the existing website */
     color: white;
-  }
+}
+.button-div{
+    margin-top: 20px;
+    border-radius: 15%;
+}
 
-
+.button-div button{
+    background-color: #04AA6D; /* Green */
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    border-radius: 15%;
+}

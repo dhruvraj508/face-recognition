@@ -21,29 +21,26 @@ def classify_image(image_base64_data, file_path=None):
     """
     image_list = get_cropped_image_if_two_eyes(file_path, image_base64_data)
     result = []
-    if len(image_list) == 0:
-        return "No face detected"
 
-    else:
-        for image in image_list:
-            # scalling the image into 32x32 before giving it to the model
-            scalled_img = cv2.resize(image, (32, 32))
-            # getting the transformed image from the function we wrote
-            har_img = transform_image(image, 'db1', 5)
-            # scalling the transformed image into 32x32
-            scalled_har_img = cv2.resize(har_img, (32, 32))
-            # now stacking on top using np.vstack
-            combined_img = np.vstack((scalled_img.reshape(32*32*3,1), scalled_har_img.reshape(32*32,1)))
-            len_img = 32*32*3 + 32*32
-            # reshaping the combined image
-            final_img = combined_img.reshape(1, len_img).astype(float)
+    for image in image_list:
+        # scalling the image into 32x32 before giving it to the model
+        scalled_img = cv2.resize(image, (32, 32))
+        # getting the transformed image from the function we wrote
+        har_img = transform_image(image, 'db1', 5)
+        # scalling the transformed image into 32x32
+        scalled_har_img = cv2.resize(har_img, (32, 32))
+        # now stacking on top using np.vstack
+        combined_img = np.vstack((scalled_img.reshape(32*32*3,1), scalled_har_img.reshape(32*32,1)))
+        len_img = 32*32*3 + 32*32
+        # reshaping the combined image
+        final_img = combined_img.reshape(1, len_img).astype(float)
 
-            result.append({
-            'class': class_number_to_name(__model.predict(final_img)[0]),
-            'class_probability': np.around(__model.predict_proba(final_img)*100,2).tolist()[0],
-            'class_dictionary': __class_name_to_number
-            })
-        return result    
+        result.append({
+        'class': class_number_to_name(__model.predict(final_img)[0]),
+        'class_probability': np.around(__model.predict_proba(final_img)*100,2).tolist()[0],
+        'class_dictionary': __class_name_to_number
+        })
+    return result    
 
 # loading the model and the class dictionary
 def load_artifacts():
@@ -119,6 +116,4 @@ def get_cv2_image_from_base64_string(b64str):
     return img
 
 if __name__ == "__main__":
-    
     load_artifacts()
-    print(classify_image(img1, None))

@@ -12,7 +12,7 @@
     
     <div id="personImages">
         <div class= 'row'>
-        <div class="card-wrapper" data-leader="narendra_modi">
+        <div class="card-wrapper" data-leader="narendra modi">
                 <div class="custom-circle-image">
                 <img class="w-100 h-100" src="images/modi.jpg" alt="Narendra Modi">
                 </div>
@@ -21,7 +21,7 @@
                     <p>Prime Minister of India</p>
                 </div>
         </div>
-        <div class="col card-wrapper" data-leader="joe_biden">
+        <div class="col card-wrapper" data-leader="joe biden">
                 <div class="custom-circle-image">
                 <img class="w-100 h-100" src="images/biden.jpg" alt="Joe Biden">
                 </div>
@@ -30,7 +30,7 @@
                     <p>The President of United States</p>
                 </div>
         </div>
-        <div class="card-wrapper" data-leader="justin_trudeau">
+        <div class="card-wrapper" data-leader="justin trudeau">
                 <div class="custom-circle-image">
                 <img class="w-100 h-100" src="images/Justin.jpg" alt="Justin Trudeau">
                 </div>
@@ -39,7 +39,7 @@
                     <p>Prime Minister of Canada</p>
                 </div>
         </div>
-        <div class="card-wrapper" data-leader="vladimir_putin">
+        <div class="card-wrapper" data-leader="vladimir putin">
                 <div class="custom-circle-image">
                 <img class="w-100 h-100" src="images/putin.jpg" alt="Vladimir Putin">
                 </div>
@@ -48,7 +48,7 @@
                     <p>President of Russia</p>
                 </div>
         </div>
-        <div class="col card-wrapper" data-leader="xi_jinping">
+        <div class="col card-wrapper" data-leader="xi jinping">
                 <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
                 <img class="w-100 h-100" src="images/jinping.jpg" alt="Xi Jinping">
                 </div>
@@ -59,10 +59,9 @@
             </div>
     </div>
 
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="row">
-                <div class="col-12 mx-auto">
+    <div class="row-1">
+        <div class="box">
+                <div class="drop-box">
                     <form action="/file-upload" class="dropzone" id="dropzone">
                         <div class="dz-message needsclick">
                             <img src="./images/upload.png" width="50vw" height="50vw"><br>
@@ -70,11 +69,8 @@
                         </div>
                     </form>
                 </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-3 mx-auto">
+            <div class="button-div">
                     <button id="submitBtn" type="button" class="btn btn-success">Classify</button>
-                </div>
             </div>
         </div>
         
@@ -85,32 +81,34 @@
         <div class="col-sm-4" id="resultHolder">
         </div>
         <div class="col-sm-4" id="divClassTable">
-            <table id="classTable">
+            <div class="table-container">
+            <table id="classTable" class="table">
                     <tr>
                         <th>Leader</th>
                         <th>Probability Score</th>
                     </tr>
                     <tr>
                         <td>Narendra Modi</td>
-                        <td id="score_modi"></td>
+                        <td id="score_narendra_modi"></td>
                     </tr>
                     <tr>
                         <td>Joe Biden</td>
-                        <td id="score_joe"></td>
+                        <td id="score_joe_biden"></td>
                     </tr>
                     <tr>
                         <td>Justin Trudeau</td>
-                        <td id="score_justin"></td>
+                        <td id="score_justin_trudeau"></td>
                     </tr>
                     <tr>
                         <td>Vladimir Putin</td>
-                        <td id="score_putin"></td>
+                        <td id="score_vladimir_putin"></td>
                     </tr>
                     <tr>
                         <td>Xi Jinping</td>
-                        <td id="score_xi"></td>
+                        <td id="score_xi_jinping"></td>
                     </tr>
             </table>
+            </div>
         </div>
         
     </div>
