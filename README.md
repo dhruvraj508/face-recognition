@@ -20,7 +20,7 @@ For the ML model:
 - Seaborn
 - Python
 - Numpy
-- Scikit-learn\
+- Scikit-learn
 
 For the web development:
 - HTML
