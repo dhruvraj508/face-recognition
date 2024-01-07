@@ -21,6 +21,7 @@ For the ML model:
 - Python
 - Numpy
 - Scikit-learn\
+
 For the web development:
 - HTML
 - CSS
