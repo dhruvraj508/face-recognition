@@ -38,7 +38,8 @@ For the web development:
 4. Now open `index.html` file in your preferred browser and you can upload images.
 
 ## Credits
-This project is an idea from https://github.com/codebasics/py/tree/master/DataScience/CelebrityFaceRecognition. 
+This project is an idea from CodeBasics (Dhaval Patel)
+https://github.com/codebasics/py/tree/master/DataScience/CelebrityFaceRecognition. 
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
